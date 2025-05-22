@@ -59,3 +59,28 @@ footer {
   padding: 10px;
   font-size: 12px;
 }
+
+.content-box {
+  margin-top: 50px;
+  padding: 20px;
+  font-size: 18px;
+}
+
+.content-box ul {
+  list-style: disc;
+  margin-top: 10px;
+  text-align: left;
+  display: inline-block;
+}
+
+.yt-icon {
+  display: inline-block;
+  color: red;
+  font-size: 22px;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.yt-icon:hover {
+  color: #ff4444;
+}
