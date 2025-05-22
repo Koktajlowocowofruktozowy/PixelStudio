@@ -2,9 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strona M</title>
-    <link rel="stylesheet" href="style.css">
     <style>
         body {
             background-color: black;
@@ -88,11 +86,10 @@
     </div>
 
     <script>
-        function showSection(sectionId) {
-            document.querySelectorAll('.content > div').forEach(div => {
-                div.classList.add('hidden');
-            });
-            document.getElementById(sectionId).classList.remove('hidden');
+        function showSection(id) {
+            const sections = document.querySelectorAll(".content > div");
+            sections.forEach(s => s.classList.add("hidden"));
+            document.getElementById(id).classList.remove("hidden");
         }
     </script>
 </body>
