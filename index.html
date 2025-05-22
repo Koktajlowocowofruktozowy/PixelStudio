@@ -1,60 +1,99 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moja Strona</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona M</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            background-color: #111;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .content {
+            margin-top: 50px;
+            font-size: 20px;
+        }
+
+        .logo {
+            font-size: 100px;
+            font-weight: bold;
+            color: lime;
+            text-shadow: 0 0 15px lime;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+            font-size: 40px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-  <header>
+    <div class="logo">m</div>
+
     <nav>
-      <div class="logo">m</div>
-      <ul>
-        <li onclick="showContent('pobieralnia')"><i class="fas fa-download"></i> Pobieralnia</li>
-        <li onclick="showContent('specyfikacje')"><i class="fas fa-desktop"></i> Specyfikacje</li>
-        <li onclick="showContent('social')"><i class="fas fa-share-alt"></i> Social Media</li>
-      </ul>
+        <a onclick="showSection('pobieralnia')">📥 Pobieralnia</a>
+        <a onclick="showSection('specyfikacje')">💻 Specyfikacje</a>
+        <a onclick="showSection('social')">🌐 Social Media</a>
     </nav>
-  </header>
 
-  <main>
-    <h1 class="logo-center">m</h1>
-    <div id="content" class="content-box">
-      <!-- Treść dynamiczna -->
+    <div class="content">
+        <div id="pobieralnia" class="hidden">
+            <p>Tutaj aktualnie nic nie ma, czekaj aż gra wystartuje.</p>
+        </div>
+        <div id="specyfikacje" class="hidden">
+            <p>Moja specyfikacja to:</p>
+            <ul style="list-style: none; padding: 0;">
+                <li>- Płyta główna Lenovo</li>
+                <li>- Intel Core i5 14 gen</li>
+                <li>- Nvidia GeForce GTX 1050 TI</li>
+                <li>- RAM 16GB</li>
+                <li>- Zasilacz Huntkey 500W</li>
+            </ul>
+        </div>
+        <div id="social" class="hidden">
+            <p>Witaj, poniżej znajdziesz moje social media:</p>
+            <div class="social-icons">
+                <a href="https://www.youtube.com/@k.x.a.y" target="_blank">📺</a>
+            </div>
+        </div>
     </div>
-  </main>
 
-  <footer>
-    <p>Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Korzystając ze strony, zgadzasz się na ich użycie. <button>Okej</button></p>
-  </footer>
-
-  <script>
-    function showContent(section) {
-      const contentDiv = document.getElementById("content");
-      if (section === "pobieralnia") {
-        contentDiv.innerHTML = "<p>Tutaj aktualnie nic nie ma, czekaj aż gra wystartuje.</p>";
-      } else if (section === "specyfikacje") {
-        contentDiv.innerHTML = `
-          <p>Moja specyfikacja to:</p>
-          <ul>
-            <li>Płyta główna Lenovo</li>
-            <li>Intel Core i5 14 gen</li>
-            <li>NVIDIA GeForce GTX 1050 TI</li>
-            <li>RAM 16 GB</li>
-            <li>Zasilacz Huntkey 500W</li>
-          </ul>
-        `;
-      } else if (section === "social") {
-        contentDiv.innerHTML = `
-          <p>Witaj! Poniżej znajdziesz moje social media:</p>
-          <a href="https://www.youtube.com/@k.x.a.y" target="_blank" class="yt-icon">
-            <i class="fab fa-youtube"></i> YouTube
-          </a>
-        `;
-      }
-    }
-  </script>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.content > div').forEach(div => {
+                div.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>
