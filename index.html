@@ -12,28 +12,49 @@
     <nav>
       <div class="logo">m</div>
       <ul>
-        <li><i class="fas fa-home"></i> Strona Główna</li>
-        <li><i class="fas fa-download"></i> Pobieralnia</li>
-        <li><i class="fas fa-desktop"></i> Specyfikacje</li>
-        <li><i class="fas fa-share-alt"></i> Social Media</li>
-        <li><i class="fas fa-car-crash"></i> Korozja</li>
-        <li><i class="fas fa-tools"></i> Administracja</li>
+        <li onclick="showContent('pobieralnia')"><i class="fas fa-download"></i> Pobieralnia</li>
+        <li onclick="showContent('specyfikacje')"><i class="fas fa-desktop"></i> Specyfikacje</li>
+        <li onclick="showContent('social')"><i class="fas fa-share-alt"></i> Social Media</li>
       </ul>
     </nav>
   </header>
 
   <main>
     <h1 class="logo-center">m</h1>
-    <div class="socials">
-      <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
-      <a href="#"><i class="fab fa-discord"></i> Discord</a>
-      <a href="#"><i class="fab fa-steam"></i> Steam</a>
-      <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
+    <div id="content" class="content-box">
+      <!-- Treść dynamiczna -->
     </div>
   </main>
 
   <footer>
     <p>Ta strona używa plików cookie, aby zapewnić najlepsze doświadczenia. Korzystając ze strony, zgadzasz się na ich użycie. <button>Okej</button></p>
   </footer>
+
+  <script>
+    function showContent(section) {
+      const contentDiv = document.getElementById("content");
+      if (section === "pobieralnia") {
+        contentDiv.innerHTML = "<p>Tutaj aktualnie nic nie ma, czekaj aż gra wystartuje.</p>";
+      } else if (section === "specyfikacje") {
+        contentDiv.innerHTML = `
+          <p>Moja specyfikacja to:</p>
+          <ul>
+            <li>Płyta główna Lenovo</li>
+            <li>Intel Core i5 14 gen</li>
+            <li>NVIDIA GeForce GTX 1050 TI</li>
+            <li>RAM 16 GB</li>
+            <li>Zasilacz Huntkey 500W</li>
+          </ul>
+        `;
+      } else if (section === "social") {
+        contentDiv.innerHTML = `
+          <p>Witaj! Poniżej znajdziesz moje social media:</p>
+          <a href="https://www.youtube.com/@k.x.a.y" target="_blank" class="yt-icon">
+            <i class="fab fa-youtube"></i> YouTube
+          </a>
+        `;
+      }
+    }
+  </script>
 </body>
 </html>
